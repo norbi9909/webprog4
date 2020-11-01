@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="fontawesome/css/all.css" rel="stylesheet" />
+    <script defer src="fontawesome/js/all.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="app.css" />
+    <title>WEB4</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav id="navbar">
+        <div class="navbar-header">
+          <h3><i class="fas fa-share-alt"></i>Modellek</h3>
+        </div>
+
+        <ul class="list-unstyled menu-points">
+          <li>
+            <a href="#"><i class="fas fa-newspaper"></i>Hetilap</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-globe-europe"></i>Online</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-link"></i>Hetilap + Online</a>
+          </li>
+          <div class="navbar-header">
+            <h3><i class="fas fa-tags"></i>Demó</h3>
+          </div>
+          <li>
+            <a href="#"><i class="fas fa-user-tag"></i>Cimkéző</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-cogs"></i>Tanító</a>
+          </li>
+        </ul>
+
+        <div class="container-fluid container-close-btn">
+          <button type="button" id="navbar-close" class="btn btn-close">
+            <i class="fas fa-angle-left fa-lg"></i>
+          </button>
+        </div>
+      </nav>
+
+      <div class="container-fluid content pt-1 px-5">
+        <h1>Címkeajánló</h1>
+        <form action="">
+          <div class="form-row">
+            <div class="form-group col-10">
+              <label for="">Cikkek Listája:</label>
+              <select id="title-selection" class="form-control">
+
+              </select>
+            </div>
+            <div class="btn-group">
+              <button id="scrl-btn-start" type="button" class="btn btn-close"><i class="fas fa-angle-double-left"></i></button>
+              <button id="scrl-btn-prev" type="button" class="btn btn-close"><i class="fas fa-arrow-left"></i></button>
+              <button id="scrl-btn-next" type="button" class="btn btn-close"><i class="fas fa-arrow-right"></i></button>
+              <button id="scrl-btn-end" type="button" class="btn btn-close"><i class="fas fa-angle-double-right"></i></button>
+            </div>
+          </div>
+        </form>
+
+        <form action="">
+          <div class="form-row">
+            <div class="form-group col-10">
+              <div class="input-group">
+                <label for="range"
+                  >Valószínűség: <span id="range-value"></span
+                ></label>
+                <div><input id="minimum" type="checkbox" /><label>min. 3</label></div>
+              </div>
+
+              <input
+                type="range"
+                class="form-control-range"
+                id="range"
+                min="0"
+                max="1"
+                step="0.01"
+              />
+            </div>
+            <div class="form-group">
+              <label for="range">P: <span>1</span></label>
+              <label for="range">R: <span>1</span></label>
+            </div>
+          </div>
+        </form>
+
+        <div class="row container-res">
+          <div class="col-5">
+            <div class="card">
+              <h1 class="card-header-cikk">Cikk szövege</h1>
+              <div class="card-body-cikk">
+                <b id="text-content" class="card-text">
+                  
+                </b>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-5">
+            <div class="row mb">
+              <div class="col-12">
+                <div class="card container-card">
+                  <div class="title-cimkek">
+                    <h3 class="card-header title-top">Eredeti címkék</h3>
+                    <h3 class="card-header title-top">Ajánlott címkék</h3>
+                  </div>
+
+                  <div class="card-body list-cimkek">
+                    <ul id="original-labels" class="data-base">
+
+                    </ul>
+                    <ul id="recommended-labels" class="data-base">
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb">
+              <div class="col-12">
+                <div class="card container-card">
+                  <div class="title-cimkek">
+                    <h5 class="card-header title-bottom">Eredeti címkék (egyéb)</h5>
+                    <h5 class="card-header title-bottom">Ajánlott címkék (egyéb)</h5>
+                  </div>
+
+                  <div class="card-body list-cimkek">
+                    <ul id="original-spec-labels" class="data-spec">
+
+                    </ul>
+                    <ul id="recommended-spec-labels" class="data-spec">
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="row">
+            <div class="col-3">
+              <div class="card">
+                <div class="card-body container-datas">
+                  <div class="list-data">
+                    <h4 class="card-title">Hetilap</h4>
+                    <ul>
+                      <li>cikk: <a>70 ezer</a></li>
+                      <li>címke: <a>103 db</a></li>
+                      <li>token: <a>53 millió</a></li>
+                      <li>type: <a>44 ezer</a></li>
+                    </ul>
+                  </div>
+                  <i class="fas fa-3x fa-clipboard-list"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-3">
+              <div class="card">
+                <div class="card-body container-datas">
+                  <div class="list-data">
+                    <h4 class="card-title">Hetilap +</h4>
+                    <ul>
+                      <li>cikk: <a>108 ezer</a></li>
+                      <li>címke: <a>4231 db</a></li>
+                      <li>token: <a>23 millió</a></li>
+                      <li>type: <a>63 ezer</a></li>
+                    </ul>
+                  </div>
+                  <i class="fas fa-3x fa-clipboard-list"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-3">
+              <div class="card">
+                <div class="card-body container-datas">
+                  <div class="list-data">
+                    <h4 class="card-title">Online</h4>
+                    <ul>
+                      <li>cikk: <a>123 ezer</a></li>
+                      <li>címke: <a>73433 db</a></li>
+                      <li>token: <a>53 millió</a></li>
+                      <li>type: <a>51 ezer</a></li>
+                    </ul>
+                  </div>
+                  <i class="fas fa-3x fa-clipboard-list"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-3">
+              <div class="card">
+                <div class="card-body container-datas">
+                  <div class="list-data">
+                    <h4 class="card-title">Hetilap + Online</h4>
+                    <ul>
+                      <li>cikk: <a>146 ezer</a></li>
+                      <li>címke: <a>512352 db</a></li>
+                      <li>token: <a>78 millió</a></li>
+                      <li>type: <a>61 ezer</a></li>
+                    </ul>
+                  </div>
+                  <i class="fas fa-3x fa-clipboard-list"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer>WEB4 Project - 2020 ©</footer>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>
